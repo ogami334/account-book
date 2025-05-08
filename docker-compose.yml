@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  backend:
+    build: ./backend
+    ports: ["9000:8080"]
+    volumes:
+      - ~/.config/gcloud:/root/.config/gcloud:ro
+
+  frontend:
+    build: ./frontend
+    ports: ["8080:8080"]
+    depends_on: [backend]

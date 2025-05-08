@@ -1,0 +1,20 @@
+steps:
+  # Build & push
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', '${_IMAGE}', 'frontend']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', '${_IMAGE}']
+  # Deploy to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - frontend
+      - --image=${_IMAGE}
+      - --region=asia-northeast1
+      - --allow-unauthenticated
+      - --update-env-vars=BACKEND_URL=${_BACKEND_URL}
+substitutions:
+  _IMAGE: 'asia-northeast1-docker.pkg.dev/$PROJECT_ID/webapp/frontend:$SHORT_SHA'
+  _BACKEND_URL: 'https://backend-$PROJECT_ID.a.run.app'
