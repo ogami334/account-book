@@ -1,5 +1,6 @@
 // components/EditDialog.tsx
 import { Transaction, FormState } from "@/types";
+import { getApiBase } from "@/lib/env";
 import { useState } from "react";
 import { mutate } from 'swr'
 
@@ -9,10 +10,8 @@ type Props = {
 };
 
 // const API_BASE = process.env.NEXT_PUBLIC_API_BASE
-const API_BASE =
-  typeof window === "undefined"
-  ? process.env.API_BASE_SERVER
-  : process.env.NEXT_PUBLIC_API_BASE_CLIENT;
+const API_BASE = getApiBase();
+// const API_BASE = "https://backend-75oql5vo4a-an.a.run.app"
 
 
 export default function EditDialog({ initial, onClose }: Props) {
