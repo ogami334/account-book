@@ -18,7 +18,7 @@ from schemas import TransactionCreate, TransactionOut, TransactionUpdate
 
 
 app = FastAPI(title="Household Transaction API", version="0.1.0")
-origins = ["http://localhost:8080"]
+origins = ["http://localhost:8080", "https://frontend-75oql5vo4a-an.a.run.app"]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
