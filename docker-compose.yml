@@ -4,8 +4,7 @@ services:
     build: ./backend
     ports: ["9000:8080"]
     volumes:
-      - ~/.config/gcloud:/root/.config/gcloud:ro
-
+      - ~/.config/gcloud:/root/.config/gcloud:ro  # necessary for google cloudsql connector
   frontend:
     build: ./frontend
     ports: ["8080:8080"]
