@@ -7,9 +7,7 @@ import TransactionsTable from '@/components/TransactionsTable'
  *   NEXT_PUBLIC_API_BASE=http://localhost:8000
  *   のように書いておくとビルド時に上書きできます。
  */
-// const API_BASE = process.env.NEXT_PUBLIC_API_BASE
 const API_BASE = getApiBase();
-// const API_BASE = "https://backend-75oql5vo4a-an.a.run.app"
 const USER_ID  = 1                                   // ←固定ユーザー ID
 
 export default async function HomePage() {

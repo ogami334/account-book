@@ -9,10 +9,7 @@ type Props = {
   onClose: () => void;
 };
 
-// const API_BASE = process.env.NEXT_PUBLIC_API_BASE
 const API_BASE = getApiBase();
-// const API_BASE = "https://backend-75oql5vo4a-an.a.run.app"
-
 
 export default function EditDialog({ initial, onClose }: Props) {
   const [form, setForm] = useState<FormState>({
